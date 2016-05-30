@@ -22,11 +22,12 @@
 
 - git clone 到本地
 - 执行 `composer install`
-- 配置 **.local.env** 中数据库连接信息
+- 配置 **.env** 中数据库连接信息,没有.env请复制.env.example命名为.env
 - 执行 `php artisan db:seed`
 - 执行 `php artisan serve`
 - 键入 'localhost:8000/admin'
 - 默认后台账号:admin@admin.com 密码:admin
+
 
 ## 使用
 - 用户管理中的权限管理添加顶级权限
