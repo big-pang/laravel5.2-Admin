@@ -21,7 +21,7 @@
 ## 安装
 
 - git clone 到本地
-- 执行 `composer install`
+- 执行 `composer install` (如果出现数据库方面的错误提示,请将 database/seeds/rbac.sql 先导入你创建的数据库)
 - 配置 **.env** 中数据库连接信息,没有.env请复制.env.example命名为.env
 - 执行 `php artisan db:seed`
 - 执行 `php artisan serve`
