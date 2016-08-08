@@ -57,7 +57,7 @@ class permChangeListener
             $str .= 'Breadcrumbs::register("' . $v->name . '", function ($breadcrumbs){
         $breadcrumbs->push("' . $v->display_name . '", route("' . $v->name . '"));
     });';
-            if ($arr[$v->id]) {
+            if (isset($arr[$v->id])&&$arr[$v->id]) {
                 foreach ($arr[$v->id] as $vv) {
                     if (ends_with($vv->name, '.index')) {
                         $index[$vv->name] = $vv->name;
