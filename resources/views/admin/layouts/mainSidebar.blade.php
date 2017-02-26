@@ -19,7 +19,7 @@
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="搜索...">
-              <span class="input-group-btn">
+                <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
@@ -33,18 +33,19 @@
             <!-- Optionally, you can add icons to the links -->
 
             <li class="active"><a href="/admin"><i class="fa fa-dashboard"></i> <span>控制面板</span></a></li>
-
-            @foreach($comData['top'] as $v)
-                <li class="treeview  @if(in_array($v['id'],$comData['openarr'])) active @endif">
-                    <a href="#"><i class="fa {{ $v['icon'] }}"></i> <span>{{$v['display_name']}}</span> <i
-                                class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        @foreach($comData[$v['id']] as $vv)
-                            <li @if(in_array($vv['id'],$comData['openarr'])) class="active" @endif><a href="{{URL::route($vv['name'])}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle-o"></i>{{$vv['display_name']}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
+            @if(isset($comData['top'])&&count($comData['top']))
+                @foreach($comData['top'] as $v)
+                    <li class="treeview  @if(in_array($v['id'],$comData['openarr'])) active @endif">
+                        <a href="#"><i class="fa {{ $v['icon'] }}"></i> <span>{{$v['display_name']}}</span> <i
+                                    class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @foreach($comData[$v['id']] as $vv)
+                                <li @if(in_array($vv['id'],$comData['openarr'])) class="active" @endif><a href="{{URL::route($vv['name'])}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle-o"></i>{{$vv['display_name']}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            @endif
 
         </ul>
         <!-- /.sidebar-menu -->
